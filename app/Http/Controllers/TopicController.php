@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Topic;
-use App\Question;
 use Illuminate\Http\Request;
-use App\Http\Requests\QuestionRequest;
 use Illuminate\Support\Facades\Auth;
 
-class QuestionController extends Controller
+class TopicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,7 @@ class QuestionController extends Controller
     public function index()
     {
         $topics = Topic::all();
-        $questions = Question::all();
-        return view('question.index', compact('topics', 'questions'));
+        return view('topic.index', compact('topics'));
     }
 
     /**
@@ -29,8 +26,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $topics = Topic::all();
-        return view('question.create', compact('topics'));
+        return view('topic.create');
     }
 
     /**
@@ -39,31 +35,36 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(QuestionRequest $request)
+    public function store(Request $request)
     {
-        Question::create();
-        return redirect()->route('question.index');
+        $this->validate($request, [
+            'topic' => 'required|min:5|max:80|unique:topics,topic',
+        ]);
+
+        $user = Auth::user();
+
+        Topic::create();
+        return redirect()->route('topic.index');
     }
 
     /**
-     * Display the specified resource
+     * Display the specified resource.
      *
-     * @param Question $question
+     * @param  \App\Topic $topic
      * @return \Illuminate\Http\Response
      */
-
-    public function show(Question $question)
+    public function show(Topic $topic)
     {
-        //
+        return view('topic.show', conpact('topic'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Question $question
+     * @param  \App\Topic $topic
      * @return \Illuminate\Http\Response
      */
-    public function edit(Question $question)
+    public function edit(Topic $topic)
     {
         //
     }
@@ -72,10 +73,10 @@ class QuestionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param Question $question
+     * @param  \App\Topic $topic
      * @return \Illuminate\Http\Response
      */
-    public function update(QuestionRequest $request, Question $question)
+    public function update(Request $request, Topic $topic)
     {
         //
     }
@@ -83,11 +84,14 @@ class QuestionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Question $question
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $question)
+    public function destroy(Topic $topic)
     {
-        //
+        $user = Auth::user();
+
+        $topic->delete();
+        return redirect()->route('topic.index');
     }
 }
