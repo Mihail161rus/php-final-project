@@ -12,22 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return redirect()->route('question.index');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('question', 'QuestionController', ['only' => [
+    'index', 'create', 'store'
+]]);
 
-/**
- * Маршруты для раздела с вопросами
- */
-Route::get('/questions', 'QuestionController@index');
-Route::post('/question', 'QuestionController@store');
-Route::delete('/question/{question}', 'QuestionController@destroy');
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('user', 'UserController', ['except' => ['show', 'destroy']]);
 
+    Route::resource('topic', 'TopicController', ['except' => ['edit', 'update']]);
 
-Route::get('/topics', 'TopicController@index');
-Route::post('/topic', 'TopicController@store');
-Route::delete('/topic/{topic}', 'TopicController@destroy');
+    Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
+       Route::resource('question', 'Admin\QuestionController', ['only' => ['edit', 'update', 'destroy']]);
+    });
+});
