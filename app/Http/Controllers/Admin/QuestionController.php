@@ -62,7 +62,7 @@ class QuestionController extends Controller
     public function edit(Question $question)
     {
         $topics = Topic::all();
-        return view('admin.question.edit', compact('topics', 'question'));
+        return view('admin.questionEdit', compact('topics', 'question'));
     }
 
     /**
