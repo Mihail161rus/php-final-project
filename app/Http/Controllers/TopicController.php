@@ -41,8 +41,6 @@ class TopicController extends Controller
             'topic' => 'required|min:5|max:80|unique:topics,topic',
         ]);
 
-        $user = Auth::user();
-
         Topic::create();
         return redirect()->route('topic.index');
     }
@@ -55,7 +53,7 @@ class TopicController extends Controller
      */
     public function show(Topic $topic)
     {
-        return view('topic.show', conpact('topic'));
+        return view('topic.show', compact('topic'));
     }
 
     /**
@@ -89,8 +87,6 @@ class TopicController extends Controller
      */
     public function destroy(Topic $topic)
     {
-        $user = Auth::user();
-
         $topic->delete();
         return redirect()->route('topic.index');
     }

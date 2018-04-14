@@ -11,19 +11,21 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return redirect()->route('question.index');
-});
+});*/
+
+Route::redirect('/', 'question', 302);
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('question', 'QuestionController', ['only' => [
     'index', 'create', 'store'
 ]]);
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+
     Route::resource('user', 'UserController', ['except' => ['show', 'destroy']]);
 
     Route::resource('topic', 'TopicController', ['except' => ['edit', 'update']]);

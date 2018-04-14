@@ -20,7 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('author');
             $table->string('email');
             $table->integer('topic_id')->unsigned();
-            $table->string('status',20)->default('moderation');
+            $table->integer('status')->default(0);
             $table->timestamps();
 
             $table->foreign('topic_id')
