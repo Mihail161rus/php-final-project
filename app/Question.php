@@ -18,16 +18,21 @@ class Question extends Model
 
     public function isActive()
     {
-        return $this->status == 'active';
+        return $this->status == 1;
     }
 
     public function isModeration()
     {
-        return $this->status == 'moderation';
+        return $this->status == 0;
     }
 
-    public function countModeration($query)
+    public function scopeModeration($query)
     {
-        return $query->where('status', 'moderation');
+        return $query->where('status', 0);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
     }
 }

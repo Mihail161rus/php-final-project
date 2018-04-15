@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
 {
+    protected $fillable = ['topic'];
+
     /**
      * Получаем пользователя создавшего тему вопроса
      *

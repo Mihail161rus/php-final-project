@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->text('question');
             $table->text('answer')->nullable();
-            $table->integer('author');
+            $table->string('author');
             $table->string('email');
             $table->integer('topic_id')->unsigned();
             $table->integer('status')->default(0);

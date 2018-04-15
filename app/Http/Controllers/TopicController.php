@@ -41,7 +41,7 @@ class TopicController extends Controller
             'topic' => 'required|min:5|max:80|unique:topics,topic',
         ]);
 
-        Topic::create();
+        Topic::create($request->input('topic'));
         return redirect()->route('topic.index');
     }
 
