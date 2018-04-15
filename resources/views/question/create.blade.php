@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Форма создания вопроса</div>
                     <div class="card-body">
-                        <form class="form-create" role="form" action="{{ route('question.store') }}" method="post">
+                        <form role="form" action="{{ route('question.store') }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="authorName">Ваше имя</label>
@@ -33,7 +33,7 @@
                                 </textarea>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Отправить</button>
+                            <button type="submit" class="btn btn-primary">Отправить вопрос</button>
                         </form>
                     </div>
                 </div>

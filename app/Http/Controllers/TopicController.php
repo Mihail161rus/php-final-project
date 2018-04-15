@@ -38,10 +38,10 @@ class TopicController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'topic' => 'required|min:5|max:80|unique:topics,topic',
+            'topic' => 'required|min:3|max:80|unique:topics,topic',
         ]);
 
-        Topic::create($request->input('topic'));
+        Topic::create($request->all());
         return redirect()->route('topic.index');
     }
 
