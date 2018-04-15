@@ -43,7 +43,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->login }} <span class="caret"></span>
+                                    {{ Auth::user()->login }}
                                 </a>
 
                                 <div class="dropdown-menu">
@@ -54,6 +54,7 @@
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
                                     </form>
                                 </div>
                             </li>

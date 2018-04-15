@@ -13,7 +13,6 @@
 
         <div class="cd-faq-items">
             @foreach ($topics as $topic)
-                @if ($topic->questions->where('status', 1)->count() > 0)
                     <ul id="{{ $topic->id }}" class="cd-faq-group">
                         <li class="cd-faq-title">
                             <h2>{{ $topic->topic }}</h2>
@@ -33,7 +32,6 @@
                             @endif
                         @endforeach
                     </ul>
-                @endif
             @endforeach
         </div>
     </section>

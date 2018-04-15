@@ -18,7 +18,7 @@ class QuestionController extends Controller
     public function index()
     {
         $topics = Topic::all();
-        $questions = Question::all();
+        $questions = Question::active()->get();
         return view('question.index', compact('topics', 'questions'));
     }
 
