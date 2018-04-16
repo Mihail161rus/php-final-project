@@ -8,17 +8,19 @@
                     <li><a href="#{{ $topic->id }}">{{ $topic->topic }}</a></li>
                 @endif
             @endforeach
-            <li><a href="{{ route('question.create') }}">Задать новый вопрос</a></li>
         </ul>
 
         <div class="cd-faq-items">
+            <a class="btn btn-success" href="{{ route('question.create') }}" role="button">Задать новый вопрос</a>
             @foreach ($topics as $topic)
                     <ul id="{{ $topic->id }}" class="cd-faq-group">
-                        <li class="cd-faq-title">
-                            <h2>{{ $topic->topic }}</h2>
-                        </li>
+                        @if ($topic->questions->where('status', 1)->count() > 0)
+                            <li class="cd-faq-title">
+                                <h2>{{ $topic->topic }}</h2>
+                            </li>
+                        @endif
                         @foreach ($questions as $question)
-                            @if (!empty($question->answer))
+                            @if (!empty($question->answer) && ($question->topic_id === $topic->id))
                                 <li>
                                     <a href="#" class="cd-faq-trigger">{{ $question->question }}</a>
                                     <div class="cd-faq-content">

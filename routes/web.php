@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('topic', 'TopicController', ['except' => ['edit', 'update']]);
 
-    Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
+    Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
        Route::resource('question', 'Admin\QuestionController', ['only' => ['edit', 'update', 'destroy']]);
     });
 });

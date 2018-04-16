@@ -41,6 +41,8 @@ class TopicController extends Controller
             'topic' => 'required|min:3|max:80|unique:topics,topic',
         ]);
 
+        $request['user_id'] = Auth::user()->id;
+
         Topic::create($request->all());
         return redirect()->route('topic.index');
     }

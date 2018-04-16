@@ -62,7 +62,7 @@ class QuestionController extends Controller
     public function edit(Question $question)
     {
         $topics = Topic::all();
-        return view('admin.questionEdit', compact('topics', 'question'));
+        return view('admin.question.edit', compact('topics', 'question'));
     }
 
     /**
@@ -74,9 +74,7 @@ class QuestionController extends Controller
      */
     public function update(QuestionRequest $request, Question $question)
     {
-        $user = Auth::user();
-
-        $question->update();
+        $question->update($request->all());
         return redirect()->route('home');
     }
 
@@ -88,8 +86,6 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        $user = Auth::user();
-
         $question->delete();
         return redirect()->route('home');
     }

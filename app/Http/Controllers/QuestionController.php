@@ -19,6 +19,7 @@ class QuestionController extends Controller
     {
         $topics = Topic::all();
         $questions = Question::active()->get();
+
         return view('question.index', compact('topics', 'questions'));
     }
 
@@ -41,7 +42,7 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request)
     {
-        Question::create();
+        Question::create($request->all());
         return redirect()->route('question.index');
     }
 
