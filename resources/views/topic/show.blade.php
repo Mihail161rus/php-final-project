@@ -25,11 +25,11 @@
                     <td>{{ $question->answer }}</td>
                     <td>
                         @if ($question->status === 0)
-                            ожидает ответа
+                            <span style="color: orange">ожидает ответа</span>
                         @elseif ($question->status === 1)
-                            опубликован
+                            <span style="color: green">опубликован</span>
                         @else
-                            скрыт
+                            <span style="color: red">скрыт</span>
                         @endif
                     </td>
                     <td>{{ $question->created_at }}</td>
