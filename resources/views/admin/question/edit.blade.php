@@ -20,6 +20,25 @@
                                 <label for="authorEmail">Email</label>
                                 <input type="email" class="form-control" id="authorEmail" name="email" required value="{{ $question->email }}">
                             </div>
+                            <div class="form-group">
+                                <label for="topicsList">Тема вопроса</label>
+                                <select class="form-control" name="topic_id" id="topicsList">
+                                    <option value="{{ $question->topic->id }}">{{ $question->topic->topic }}</option>
+                                    @foreach ($topics as $topic)
+                                        @if ($topic->id !== $question->topic->id)
+                                            <option value="{{ $topic->id }}">{{ $topic->topic }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="questionText">Вопрос</label>
+                                <div>
+                                    <textarea class="form-control" name="question" id="questionText" rows="10" required>
+                                    {{ $question->question }}
+                                </textarea>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
