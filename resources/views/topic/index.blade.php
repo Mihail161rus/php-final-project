@@ -8,6 +8,7 @@
             <tr>
                 <th>#</th>
                 <th>Название темы</th>
+                <th>Автор темы</th>
                 <th>Всего вопросов в теме</th>
                 <th>Вопросов опубликовано</th>
                 <th>Вопросов без ответа</th>
@@ -18,9 +19,10 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $topic->topic }}</td>
+                    <td>{{ $topic->user->login }}</td>
                     <td>{{ $topic->questions->count() }}</td>
                     <td>{{ $topic->questions->where('status', 1)->count() }}</td>
-                    <td>{{ $topic->questions->where('status', 0)->count() }}</td>
+                    <td>{{ $topic->questions->where('answer', null)->count() }}</td>
                     <td>{{ $topic->questions->where('status', 2)->count() }}</td>
                     <td>
                         <a class="btn btn-info" href="{{ route('topic.show', [$topic->id]) }}" role="button">

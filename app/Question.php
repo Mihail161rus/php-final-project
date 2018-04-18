@@ -23,8 +23,13 @@ class Question extends Model
         return $query->where('status', 0);
     }
 
-    public function scopeEmptyAnswer($query)
+    public function scopeActive($query)
     {
-        return $query->where('answer', null);
+        return $query->where('status', 1);
+    }
+
+    public function scopeEmpty($query)
+    {
+        return $query->where('answer', null)->orderBy('created_at', 'desc');
     }
 }

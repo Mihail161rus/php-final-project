@@ -17,7 +17,8 @@ class HomeController extends Controller
     {
         $topics = Topic::all();
         $questions = Question::all();
-        $questionsWithoutAnswer = Question::moderation();
-        return view('home', compact('topics', 'questions', 'questionsWithoutAnswer'));
+        $questionsEmpty = Question::empty()->get();
+
+        return view('home', compact('topics', 'questions', 'questionsEmpty'));
     }
 }

@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index', compact('users'));
+        $users = User::all();
+        return view('admin.user.index', compact('users'));
     }
 
     /**
@@ -24,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        return view('admin.user.create');
     }
 
     /**
@@ -47,7 +48,7 @@ class UserController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        return redirect()->route('user.index');
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -69,7 +70,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.edit', compact('user'));
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -88,7 +89,7 @@ class UserController extends Controller
 
         $user->password = bcrypt($request->password);
         $user->save();
-        return redirect()->route('user.index');
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -99,6 +100,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('admin.user.index');
     }
 }
