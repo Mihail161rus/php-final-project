@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $fillable = ['question', 'answer', 'author', 'email', 'topic_id'];
+    protected $fillable = ['question', 'answer', 'author', 'email', 'topic_id', 'status'];
 
     /**
      * Получаем тему вопроса
@@ -18,23 +18,13 @@ class Question extends Model
         return $this->belongsTo(Topic::class);
     }
 
-    public function isActive()
-    {
-        return $this->status == 1;
-    }
-
-    public function isModeration()
-    {
-        return $this->status == 0;
-    }
-
     public function scopeModeration($query)
     {
         return $query->where('status', 0);
     }
 
-    public function scopeActive($query)
+    public function scopeEmptyAnswer($query)
     {
-        return $query->where('status', 1);
+        return $query->where('answer', null);
     }
 }

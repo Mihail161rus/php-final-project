@@ -36,7 +36,7 @@
                     <td>{{ $question->updated_at }}</td>
                     <td>
                         <a class="btn btn-info" href="{{ route('admin.question.edit', [$question->id]) }}" role="button">
-                            К списку вопросов
+                            Редактировать вопрос
                         </a>
                     </td>
                 </tr>

@@ -11,6 +11,7 @@
                 <th>Всего вопросов в теме</th>
                 <th>Вопросов опубликовано</th>
                 <th>Вопросов без ответа</th>
+                <th>Вопросов скрыто</th>
                 <th>Действия</th>
             </tr>
             @foreach ($topics as $topic)
@@ -20,6 +21,7 @@
                     <td>{{ $topic->questions->count() }}</td>
                     <td>{{ $topic->questions->where('status', 1)->count() }}</td>
                     <td>{{ $topic->questions->where('status', 0)->count() }}</td>
+                    <td>{{ $topic->questions->where('status', 2)->count() }}</td>
                     <td>
                         <a class="btn btn-info" href="{{ route('topic.show', [$topic->id]) }}" role="button">
                             К списку вопросов

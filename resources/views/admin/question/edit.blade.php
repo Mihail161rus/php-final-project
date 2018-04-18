@@ -33,12 +33,45 @@
                             </div>
                             <div class="form-group">
                                 <label for="questionText">Вопрос</label>
-                                <div>
-                                    <textarea class="form-control" name="question" id="questionText" rows="10" required>
+                                <textarea class="form-control" name="question" id="questionText" rows="6" required>
                                     {{ $question->question }}
                                 </textarea>
-                                </div>
                             </div>
+                            <div class="form-group">
+                                <label for="answerText">Ответ</label>
+                                <textarea class="form-control" name="answer" id="answerText" rows="6">
+                                    {{ $question->answer }}
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="statusList">Статус вопроса</label>
+                                <select class="form-control" name="status" id="statusList">
+                                    <option value="{{ $question->status }}">
+                                        @if ($question->status === 0)
+                                            ожидает ответа
+                                        @elseif ($question->status === 1)
+                                            опубликован
+                                        @else
+                                            скрыт
+                                        @endif
+                                    </option>
+                                    @if ($question->status === 0)
+                                        <option value="1">опубликовать</option>
+                                        <option value="2">скрыть</option>
+                                    @elseif ($question->status === 1)
+                                        <option value="2">скрыть</option>
+                                    @elseif ($question->status === 2)
+                                        <option value="1">опубликовать</option>
+                                    @endif
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                        </form>
+                        <hr>
+                        <form action="{{ route('admin.question.destroy', [$question->id]) }}" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-danger">Удалить вопрос</button>
                         </form>
                     </div>
                 </div>

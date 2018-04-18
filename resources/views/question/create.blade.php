@@ -27,11 +27,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="questionText">Вопрос</label>
-                                <div>
-                                    <textarea class="form-control" name="question" id="questionText" rows="10" required>
+                                <textarea class="form-control" name="question" id="questionText" rows="6" required>
                                     {{ old('question') }}
                                 </textarea>
-                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Отправить вопрос</button>
                         </form>
