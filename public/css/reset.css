@@ -13,7 +13,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+figure, figcaption, footer, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -48,4 +48,11 @@ table {
 }
 table td form {
 	display: inline-block;
+}
+nav.navbar.bg-dark {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+nav.navbar .navbar-brand {
+	line-height: 30px;
 }
