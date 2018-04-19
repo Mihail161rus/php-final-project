@@ -30,8 +30,8 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">Список вопросов</a>
                 @if (Auth::check())
-                    <a class="navbar-brand" href="{{ url('/home') }}" >Админ панель</a>
-                    <a class="navbar-brand" href="{{ route('topic.index') }}" >Список тем</a>
+                    <a class="navbar-brand" href="{{ url('/admin/home') }}" >Админ панель</a>
+                    <a class="navbar-brand" href="{{ route('admin.topic.index') }}" >Список тем</a>
                     <a class="navbar-brand" href="{{ route('admin.user.index') }}" >Список админов</a>
                 @endif
 

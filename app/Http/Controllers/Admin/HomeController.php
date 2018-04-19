@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Topic;
 use App\Question;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -19,6 +20,6 @@ class HomeController extends Controller
         $questions = Question::all();
         $questionsEmpty = Question::empty()->get();
 
-        return view('home', compact('topics', 'questions', 'questionsEmpty'));
+        return view('admin.home', compact('topics', 'questions', 'questionsEmpty'));
     }
 }

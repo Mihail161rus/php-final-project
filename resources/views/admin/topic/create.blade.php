@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Форма создания темы</div>
                     <div class="card-body">
-                        <form role="form" action="{{ route('topic.store') }}" method="post">
+                        <form role="form" action="{{ route('admin.topic.store') }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="topicName">Название темы</label>

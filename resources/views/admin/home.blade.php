@@ -49,8 +49,6 @@
             <h1>Вопросов без ответов не найдено</h1>
         @endif
             <hr>
-            <h1>Список вопросов по каждой теме</h1>
-            <hr>
             @foreach ($topics as $topic)
                 @if ($topic->questions->count() > 0)
                     <h2>{{ $topic->topic }}</h2>

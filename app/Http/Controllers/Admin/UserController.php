@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -37,13 +38,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'login' => 'required|min:3|max:50',
-            'email' => 'required|max:50|unique:users',
+            'login' => 'required|min:3|max:50|unique:users,login',
+            'email' => 'required|max:50|unique:users,email',
             'password' => 'required'
         ]);
 
         User::create([
-            'name' => $request->name,
+            'login' => $request->login,
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);

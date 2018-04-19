@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class TopicController extends Controller
 {
@@ -16,7 +17,7 @@ class TopicController extends Controller
     public function index()
     {
         $topics = Topic::all();
-        return view('topic.index', compact('topics'));
+        return view('admin.topic.index', compact('topics'));
     }
 
     /**
@@ -26,7 +27,7 @@ class TopicController extends Controller
      */
     public function create()
     {
-        return view('topic.create');
+        return view('admin.topic.create');
     }
 
     /**
@@ -44,7 +45,7 @@ class TopicController extends Controller
         $request['user_id'] = Auth::user()->id;
 
         Topic::create($request->all());
-        return redirect()->route('topic.index');
+        return redirect()->route('admin.topic.index');
     }
 
     /**
@@ -55,7 +56,7 @@ class TopicController extends Controller
      */
     public function show(Topic $topic)
     {
-        return view('topic.show', compact('topic'));
+        return view('admin.topic.show', compact('topic'));
     }
 
     /**
@@ -90,6 +91,6 @@ class TopicController extends Controller
     public function destroy(Topic $topic)
     {
         $topic->delete();
-        return redirect()->route('topic.index');
+        return redirect()->route('admin.topic.index');
     }
 }

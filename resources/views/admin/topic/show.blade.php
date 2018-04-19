@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Список вопросов по теме {{ $topic->topic }}</h1>
         <hr>
-        <form action="{{ route('topic.destroy', [$topic->id]) }}" method="post">
+        <form action="{{ route('admin.topic.destroy', [$topic->id]) }}" method="post">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <button type="submit" class="btn btn-danger">Удалить тему</button>

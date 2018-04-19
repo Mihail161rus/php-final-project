@@ -33,15 +33,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="questionText">Вопрос</label>
-                                <textarea class="form-control" name="question" id="questionText" rows="6" required>
-                                    {{ $question->question }}
-                                </textarea>
+                                <textarea class="form-control" name="question" id="questionText" rows="6" required>{{ $question->question }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="answerText">Ответ</label>
-                                <textarea class="form-control" name="answer" id="answerText" rows="6">
-                                    {{ $question->answer }}
-                                </textarea>
+                                <textarea class="form-control" name="answer" id="answerText" rows="6">{{ $question->answer }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="statusList">Статус вопроса</label>

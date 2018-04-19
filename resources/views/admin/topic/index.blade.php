@@ -25,7 +25,7 @@
                     <td>{{ $topic->questions->where('answer', null)->count() }}</td>
                     <td>{{ $topic->questions->where('status', 2)->count() }}</td>
                     <td>
-                        <a class="btn btn-info" href="{{ route('topic.show', [$topic->id]) }}" role="button">
+                        <a class="btn btn-info" href="{{ route('admin.topic.show', [$topic->id]) }}" role="button">
                             К списку вопросов
                         </a>
                     </td>
@@ -33,6 +33,6 @@
             @endforeach
         </table>
 
-        <a class="btn btn-success" href="{{ route('topic.create') }}" role="button">Добавить новую тему</a>
+        <a class="btn btn-success" href="{{ route('admin.topic.create') }}" role="button">Добавить новую тему</a>
     </div>
 @endsection

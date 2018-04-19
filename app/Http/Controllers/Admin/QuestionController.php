@@ -75,7 +75,7 @@ class QuestionController extends Controller
     public function update(QuestionRequest $request, Question $question)
     {
         $question->update($request->all());
-        return redirect()->route('home');
+        return redirect()->route('admin.home');
     }
 
     /**
@@ -87,6 +87,6 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         $question->delete();
-        return redirect()->route('home');
+        return redirect()->route('admin.home');
     }
 }
