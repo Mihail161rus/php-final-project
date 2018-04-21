@@ -13,6 +13,7 @@
                 <th>Вопросов опубликовано</th>
                 <th>Вопросов без ответа</th>
                 <th>Вопросов скрыто</th>
+                <th>Дата создания</th>
                 <th>Действия</th>
             </tr>
             @foreach ($topics as $topic)
@@ -24,6 +25,7 @@
                     <td>{{ $topic->questions->where('status', 1)->count() }}</td>
                     <td>{{ $topic->questions->where('answer', null)->count() }}</td>
                     <td>{{ $topic->questions->where('status', 2)->count() }}</td>
+                    <td>{{ $topic->created_at->format('H.i d.M.Y') }}</td>
                     <td>
                         <a class="btn btn-info" href="{{ route('admin.topic.show', [$topic->id]) }}" role="button">
                             К списку вопросов

@@ -9,6 +9,8 @@
                 <th>#</th>
                 <th>Логин</th>
                 <th>Email</th>
+                <th>Дата создания</th>
+                <th>Дата обновления</th>
                 <th>Операции</th>
             </tr>
             @foreach ($users as $user)
@@ -16,6 +18,8 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->login }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>{{ $user->created_at->format('H.i d.M.Y') }}</td>
+                    <td>{{ $user->updated_at->format('H.i d.M.Y') }}</td>
                     <td>
                         <a class="btn btn-info" href="{{ route('admin.user.edit', [$user->id]) }}" role="button">Изменить пароль</a>
                         @if (count($users) != 1)

@@ -27,8 +27,8 @@
                                         <p>{{ $question->answer }}</p>
                                         <hr>
                                         <p>Автор вопроса: {{ $question->author }}</p>
-                                        <p>Дата создания: {{ $question->created_at }}</p>
-                                        <p>Дата последнего обновления: {{ $question->updated_at }}</p>
+                                        <p>Дата создания: {{ $question->created_at->format('H.i d.M.Y') }}</p>
+                                        <p>Дата последнего обновления: {{ $question->updated_at->format('H.i d.M.Y') }}</p>
                                     </div>
                                 </li>
                             @endif

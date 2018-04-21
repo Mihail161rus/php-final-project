@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     protected $fillable = ['question', 'answer', 'author', 'email', 'topic_id', 'status'];
+    //protected $dateFormat = 'H.i d.M.Y';
 
     /**
      * Получаем тему вопроса

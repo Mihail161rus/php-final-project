@@ -35,8 +35,8 @@
                                     <span style="color: red">скрыт</span>
                                 @endif
                             </td>
-                            <td>{{ $questionEmpty->created_at }}</td>
-                            <td>{{ $questionEmpty->updated_at }}</td>
+                            <td>{{ $questionEmpty->created_at->format('H.i d.M.Y') }}</td>
+                            <td>{{ $questionEmpty->updated_at->format('H.i d.M.Y') }}</td>
                             <td>
                                 <a class="btn btn-info" href="{{ route('admin.question.edit', [$questionEmpty->id]) }}" role="button">
                                     Редактировать вопрос
@@ -80,8 +80,8 @@
                                         <span style="color: red">скрыт</span>
                                     @endif
                                 </td>
-                                <td>{{ $question->created_at }}</td>
-                                <td>{{ $question->updated_at }}</td>
+                                <td>{{ $question->created_at->format('H.i d.M.Y') }}</td>
+                                <td>{{ $question->updated_at->format('H.i d.M.Y') }}</td>
                                 <td>
                                     <a class="btn btn-info" href="{{ route('admin.question.edit', [$question->id]) }}" role="button">
                                         Редактировать вопрос
