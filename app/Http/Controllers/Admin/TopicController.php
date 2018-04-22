@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class TopicController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Возвращает список всех созданных тем для вопросов
      *
      * @return \Illuminate\Http\Response
      */
@@ -21,7 +21,7 @@ class TopicController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Выводит форму для создания новой темы
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,7 +31,7 @@ class TopicController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Метод сохраняет вновь созданную тему в БД
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -50,7 +50,7 @@ class TopicController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Отображает данные по выбранной теме
      *
      * @param  \App\Topic $topic
      * @return \Illuminate\Http\Response
@@ -84,7 +84,7 @@ class TopicController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаляет выбранную тему из БД
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

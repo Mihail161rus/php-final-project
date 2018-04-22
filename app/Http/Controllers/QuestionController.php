@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class QuestionController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Возвращает список опубликованных вопросов
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,7 +24,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Возвращает форму для создания нового вопроса
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,7 +35,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Метод помещает вновь созданный вопрос в БД
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

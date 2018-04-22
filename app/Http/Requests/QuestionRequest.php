@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class QuestionRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Определяем, авторизован ли пользователь для выполнения последующего запроса
      *
      * @return bool
      */
@@ -17,7 +17,7 @@ class QuestionRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Получаем правила валидации для обработки запроса при создании нового вопроса
      *
      * @return array
      */

@@ -11,10 +11,6 @@
 |
 */
 
-/*Route::get('/', function () {
-    return redirect()->route('question.index');
-});*/
-
 Route::redirect('/', 'question', 302);
 
 Auth::routes();

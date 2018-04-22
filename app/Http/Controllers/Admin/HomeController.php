@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     /**
-     * Show the application dashboard.
+     * Метод возвращает список всех вопросов и вопросов без ответа
      *
      * @return \Illuminate\Http\Response
      */

@@ -54,7 +54,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Возвращает форму для редактирования конкретного вопроса
      *
      * @param  \App\Question $question
      * @return \Illuminate\Http\Response
@@ -66,7 +66,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновляет данные по изменяемому вопросу
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Question $question
@@ -79,7 +79,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаляет конкретный вопрос из БД
      *
      * @param  \App\Question $question
      * @return \Illuminate\Http\Response

@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Возвращает список всех администраторов из БД
      *
      * @return \Illuminate\Http\Response
      */
@@ -20,7 +20,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Возвращает форму для создания нового админа
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,7 +30,7 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Сохраняет вновь созданного админа в БД
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -64,7 +64,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Возвращает форму для редактирования пароля выбранного пользователя
      *
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
@@ -75,7 +75,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновляет пароль выбранного пользователя в БД
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\User $user
@@ -94,7 +94,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаляет выбранного пользователя из БД
      *
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
